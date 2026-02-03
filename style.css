@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=SN+Pro:wght@200..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+     -webkit-tap-highlight-color: transparent;
+       touch-action: manipulation;
+}
+
+body {
+    font-family: "SN Pro", sans-serif;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    overflow: hidden;
+}
+
+nav {
+    background-color: rgb(255, 65, 255);
+    height: 62px;
+    font-size: clamp(1rem, 4vw + 1rem, 2rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+    line-height: 100px; 
+    text-align: center;
+    /* display: none; */
+}
+
+.box {
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: rgb(255, 200, 255);
+}
+
+.textBox {
+ font-size: clamp(1.5rem,4vw + 1rem,4rem);
+}
+
+.bt-0 {
+    border-top: 0;
+}
+
+.bl-0 {
+    border-left: 0;
+}
+
+.br-0 {
+    border-right: 0;
+}
+
+.bb-0 {
+    border-bottom: 0;
+}
+
+
+#winner{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.btn {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: #1f1f1f;
+    color: #ffff;
+    border: none;
+    height: 60px;
+    font-size: 20px;
+    transition: all 0.3s ease-in;
+}
+
+.btn:active{
+    background-color: #262626c9;
+    color: #2f2f2f;
+    font-size: 22px;
+}
