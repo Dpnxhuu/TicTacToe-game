@@ -4,8 +4,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-     -webkit-tap-highlight-color: transparent;
-       touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 body {
@@ -31,7 +31,7 @@ nav {
     grid-template-rows: repeat(3, 100px);
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
-    line-height: 100px; 
+    line-height: 100px;
     text-align: center;
     /* display: none; */
 }
@@ -46,7 +46,7 @@ nav {
 }
 
 .textBox {
- font-size: clamp(1.5rem,4vw + 1rem,4rem);
+    font-size: clamp(1.5rem, 4vw + 1rem, 4rem);
 }
 
 .bt-0 {
@@ -66,8 +66,7 @@ nav {
 }
 
 
-#winner{
-    display: none;
+#winner {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -86,7 +85,7 @@ nav {
     transition: all 0.3s ease-in;
 }
 
-.btn:active{
+.btn:active {
     background-color: #262626c9;
     color: #2f2f2f;
     font-size: 22px;

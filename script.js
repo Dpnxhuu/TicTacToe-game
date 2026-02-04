@@ -3,23 +3,26 @@ const boxText = document.querySelectorAll(".textBox");
 const resetBtn = document.getElementById("reset");
 const winnerDiv = document.getElementById("winner");
 const who = document.getElementById("who");
+const game = document.getElementById("game");
+const winnerBox = document.getElementById("winner-box");
 
 let turn = "X";
 let gameOver = false;
 
 // start me winner hide
+game.style.display = "grid";
 winnerDiv.style.display = "none";
-
+winnerBox.textContent = "";
 // winning patterns (indexes)
 const winPatterns = [
-  [0,1,2],
-  [3,4,5],
-  [6,7,8],
-  [0,3,6],
-  [1,4,7],
-  [2,5,8],
-  [0,4,8],
-  [2,4,6]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
 ];
 
 // box click logic
@@ -49,6 +52,8 @@ function checkWinner() {
     ) {
       // show winner
       who.innerText = boxText[a].innerText;
+      winnerBox.textContent = "WINNER!";
+      game.style.display = "none";
       winnerDiv.style.display = "flex";
       gameOver = true;
 
@@ -61,31 +66,31 @@ function checkWinner() {
   }
 
   // draw
-  if ([...boxText].every(b => b.innerText !== "")) {
-    who.innerText = "DRAW";
+  if ([...boxText].every((b) => b.innerText !== "")) {
+    who.innerText = "XO";
+    winnerBox.textContent = "DRAW";
+    game.style.display = "none";
     winnerDiv.style.display = "flex";
     gameOver = true;
   }
 }
 
+// draw check
+const isDraw = Array.from(boxText).every((box) => box.innerText !== "");
 
-  // draw check
-  const isDraw = Array.from(boxText).every(
-    box => box.innerText !== ""
-  );
-
-  if (isDraw) {
-    who.innerText = "DRAW";
-    winnerDiv.style.display = "block";
-    gameOver = true;
-  }
-
+if (isDraw) {
+  winnerBox.textContent = "DRAW";
+  who.innerText = "XO";
+  winnerDiv.style.display = "flex";
+  gameOver = true;
+}
 
 // reset game
 resetBtn.addEventListener("click", () => {
-  boxText.forEach(b => b.innerText = "");
-  boxes.forEach(b => b.style.background = "");
+  boxText.forEach((b) => (b.innerText = ""));
+  boxes.forEach((b) => (b.style.background = ""));
   turn = "X";
   gameOver = false;
   winnerDiv.style.display = "none";
+  game.style.display = "grid";
 });
