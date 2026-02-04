@@ -5,6 +5,12 @@ const winnerDiv = document.getElementById("winner");
 const who = document.getElementById("who");
 const game = document.getElementById("game");
 const winnerBox = document.getElementById("winner-box");
+let tune = new Audio("ting.mp3");
+let gOverSound = new Audio("gameover.mp3");
+let music = new Audio("music.mp3");
+// music.play();
+gOverSound.preload = "auto";
+tune.preload = "auto";
 
 let turn = "X";
 let gameOver = false;
@@ -31,7 +37,8 @@ boxes.forEach((box, index) => {
     if (boxText[index].innerText !== "" || gameOver) return;
 
     boxText[index].innerText = turn;
-
+    tune.currentTime = 0;
+    tune.play();
     checkWinner();
 
     if (!gameOver) {
@@ -51,11 +58,13 @@ function checkWinner() {
       boxText[b].innerText === boxText[c].innerText
     ) {
       // show winner
+      gOverSound.play();
       who.innerText = boxText[a].innerText;
       winnerBox.textContent = "WINNER!";
       game.style.display = "none";
       winnerDiv.style.display = "flex";
       gameOver = true;
+      gOverSound.currentTime = 0;
 
       // highlight winning boxes
       boxes[a].style.background = "#ffc6f5";
